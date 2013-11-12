@@ -1,17 +1,19 @@
 require 'sinatra'
-require "sinatra/json"
+require 'sinatra/json'
 require 'twitter'
+require 'yaml'
 
-YOUR_CONSUMER_KEY = "ZK8Yb7AHWn5bY3SW2o8Yg"
-YOUR_CONSUMER_SECRET = "16arWqAg5FToVLcuv1sIwmENzrrwcp1hEaDYe2AUKo"
-YOUR_OAUTH_TOKEN = "1482402961-BqN6UbMfy7sUdGHEvEqUzkwvaMS1tfLSRFto0Tl"
-YOUR_OAUTH_TOKEN_SECRET = "bDux66E77MUVgzx0iWDWUzwCYdX2dm4ugYzGn9JVOtW0E"
+env_config = YAML.load_file('./env.yaml')
+
+env_config.each do |key, value|
+  ENV[key] = value
+end
 
 Twitter.configure do |config|
-  config.consumer_key = YOUR_CONSUMER_KEY
-  config.consumer_secret = YOUR_CONSUMER_SECRET
-  config.oauth_token = YOUR_OAUTH_TOKEN
-  config.oauth_token_secret = YOUR_OAUTH_TOKEN_SECRET
+  config.consumer_key = ENV['TWITTER_KEY']
+  config.consumer_secret = ENV['TWITTER_SECRET']
+  config.oauth_token = ENV['OAUTH_TOKEN']
+  config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
 end
 
 MY_DATA = {
