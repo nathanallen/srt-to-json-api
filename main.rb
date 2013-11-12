@@ -31,6 +31,9 @@ MY_DATA = {
 	},
 }
 
+before do
+	response.header['Access-Control-Allow-Origin'] = '*'
+end
 
 get '/' do
 	json MY_DATA
