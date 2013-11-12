@@ -1,5 +1,6 @@
 require 'sinatra'
+require "sinatra/json"
 
 get '/' do
-	"hello world!"
+	json :msg => "hello world!"
 end
