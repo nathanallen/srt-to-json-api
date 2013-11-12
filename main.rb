@@ -3,10 +3,11 @@ require 'sinatra/json'
 require 'twitter'
 require 'yaml'
 
-env_config = YAML.load_file('./env.yaml')
-
-env_config.each do |key, value|
-  ENV[key] = value
+if ENV['RACK_ENV'] == 'development'
+	env_config = YAML.load_file('./env.yaml')
+	env_config.each do |key, value|
+	  ENV[key] = value
+	end
 end
 
 Twitter.configure do |config|
