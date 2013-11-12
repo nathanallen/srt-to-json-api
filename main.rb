@@ -36,7 +36,8 @@ get '/' do
 	json MY_DATA
 end
 
-get '/:detail' do
-	detail = params[:detail].to_sym
-	json MY_DATA[detail]
+get '/:cat/?*' do
+	cat = params[:captures][0].to_sym
+	splat = params[:captures][1].to_sym unless params[:captures][1] == ""
+	splat ? json(MY_DATA[cat][splat]) : json(MY_DATA[cat])
 end
