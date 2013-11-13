@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'sinatra/json'
-require 'twitter'
 require_relative 'twitter_config'
 require_relative 'user_data'
 

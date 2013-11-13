@@ -1,6 +1,7 @@
-require 'yaml'
+require 'twitter'
 
 if ENV['RACK_ENV'] == 'development'
+	require 'yaml'
 	env_config = YAML.load_file('secret.yaml')
 	env_config.each do |key, value|
 	  ENV[key] = value
