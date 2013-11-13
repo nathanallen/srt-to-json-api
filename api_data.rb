@@ -1,4 +1,4 @@
-USER_DATA = {
+API_DATA = {
 	contact: {
 		first_name: "Nathan",
 		middle_name: "Lawrence",
