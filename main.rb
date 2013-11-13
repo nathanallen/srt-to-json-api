@@ -8,7 +8,7 @@ before do
 end
 
 get '/' do
-	json API_DATA
+	json API_DATA[:directory]
 end
 
 get '/:category/?*' do

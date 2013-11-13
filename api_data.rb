@@ -1,4 +1,10 @@
 API_DATA = {
+	directory: {
+		contact_url: "http://api.codeislike.com/contact",
+		contact_email_url: "http://api.codeislike.com/contact/email",
+		status_url: "http://api.codeislike.com/status",
+		twitter_status_url: "http://api.codeislike.com/status/last_tweet"
+	},
 	contact: {
 		first_name: "Nathan",
 		middle_name: "Lawrence",
