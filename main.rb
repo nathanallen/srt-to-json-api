@@ -11,8 +11,8 @@ get '/' do
 	json USER_DATA
 end
 
-get '/:cat/?*' do
-	cat = params[:captures][0].to_sym
-	splat = params[:captures][1].to_sym unless params[:captures][1] == ""
-	splat ? json(USER_DATA[cat][splat]) : json(USER_DATA[cat])
+get '/:category/?*' do
+	category = params[:captures][0].to_sym
+	item = params[:captures][1].to_sym unless params[:captures][1] == ""
+	item ? json(USER_DATA[category][item]) : json(USER_DATA[category])
 end
