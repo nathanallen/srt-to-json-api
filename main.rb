@@ -6,5 +6,10 @@ before do
 end
 
 get '/' do
- `curl http://new.outloudradio.org/sites/default/files/transcripts/Asexuality_FAQ.en_.srt`
+ url = params['url']
+ if url
+ 	%x( curl '#{url}' )
+ else
+ 	"no url provided"
+ end
 end
