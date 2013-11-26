@@ -9,6 +9,7 @@ end
 get '/' do
  url = params['url']
  if url
+  url.gsub!(" ", "%20")
  	srt_file = %x( curl '#{url}' )
  	SRT_Parser.parse(srt_file)
  else
